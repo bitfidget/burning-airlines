@@ -8,8 +8,8 @@
 <!--this template is for the whole page -->
 <script id="searchView" type="text/x-underscore-template">  
     <form id="searchForm">
-        <input type="text" name="From" placeholder="From" id="From">
-        <input type="text" name="To" placeholder="To" id="To">
+        <input type="text" name="From" placeholder="From" id="searchOrigin">
+        <input type="text" name="To" placeholder="To" id="searchDestination">
         <input type="submit" value="Submit">
     </form>
     <h2>Flight Search Results</h2>
@@ -24,12 +24,10 @@
 </script>
 
 <!-- This template displays 3 columns of info: date, flight number, and From>To -->
-<script id="searchResultView" type="text/x-underscore-template">   
-        <tr>
-          <td class="date">{{ departure }}</td>
-          <td class="flightNumber">{{ flight_no }}</td>        
-          <td class="from">{{ origin }}</td>
-          <td class="to">{{ destination }}</td>
-        </tr>      
+<script id="searchResultView" type="text/x-underscore-template">       
+  <td class="date">{{ departure }}</td>
+  <td class="flightNumber">{{ flight_no }}</td>        
+  <td class="from">{{ origin }}</td>
+  <td class="to">{{ destination }}</td>  
 </script>
 

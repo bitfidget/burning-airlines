@@ -22,7 +22,10 @@ $(document).ready(function () {
   planes.fetch();
 
   flights = new BurningAirlines.Collections.Flights();
-  flights.fetch();
+  flights.fetch().done(function () {
+    var view = new BurningAirlines.Views.SearchView({collection: flights});
+    view.render();
+  });
 
   reservations = new BurningAirlines.Collections.Reservations();
   reservations.fetch();
@@ -35,8 +38,7 @@ $(document).ready(function () {
   
   plane.save();
 
-  var view = new BurningAirlines.Views.SearchView();
-  view.render();
+  
 
 });
 
