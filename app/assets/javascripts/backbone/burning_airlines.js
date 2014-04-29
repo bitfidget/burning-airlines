@@ -18,28 +18,29 @@ window.BurningAirlines = {
 };
 
 $(document).ready(function () {
-  planes = new BurningAirlines.Collections.Planes();
-  planes.fetch();
+  // BurningAirlines.planes = new BurningAirlines.Collections.Planes();
+  // BurningAirlines.planes.fetch();
 
-  flights = new BurningAirlines.Collections.Flights();
-  flights.fetch().done(function () {
-    var view = new BurningAirlines.Views.SearchView({collection: flights});
-    view.render();
-  });
+  // flights = new BurningAirlines.Collections.Flights();
+  // flights.fetch().done(function () {
+  //   var view = new BurningAirlines.Views.SearchView({collection: flights});
+  //   view.render();
+  // });
 
-  reservations = new BurningAirlines.Collections.Reservations();
-  reservations.fetch();
+  BurningAirlines.flights = new BurningAirlines.Collections.Flights();
+  BurningAirlines.flights.fetch().done( showView );
 
-  plane = new BurningAirlines.Models.Plane({
-    rows: 3,
-    columns: 3,
-    model: '747'
-  });
-  
-  plane.save();
-
-  
+  // BurningAirlines.reservations = new BurningAirlines.Collections.Reservations();
+  // BurningAirlines.reservations.fetch();
 
 });
+
+//TEST OF FLIGHT / RESERVATION PAGE
+var showView = function () {
+  var flight = BurningAirlines.flights.models[0];
+  console.log('running',flight);
+  var view = new BurningAirlines.Views.FlightView({model: flight});
+  view.render();
+};
 
 
