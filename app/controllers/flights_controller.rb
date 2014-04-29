@@ -5,6 +5,13 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+
+    # render :json => @flights #, :include => {:plane}
+
+     respond_to do |format|
+      format.html #{ redirect_to @user, notice: 'User was successfully created.' }
+      format.json { render json: @flights, :include => :plane} #, status: :created, location: @user }
+    end
   end
 
   # GET /flights/1

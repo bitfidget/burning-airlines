@@ -24,27 +24,25 @@ user6.save
 
 #----------------------------------------------------
 
-# flight's seed file
-
-flight = Flight.new(:flight_no => '412', :plane_id => 1, :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
-flight.save
-
-
-#----------------------------------------------------
-
 # plane's seed file
 
 plane = Plane.new(:rows => 12, :columns => 6, :model => "747")
 plane.save
 
+#----------------------------------------------------
+
+# flight's seed file
+
+flight = plane.flights.new(:flight_no => '412', :plane_id => 1, :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight.save
 
 #----------------------------------------------------
 
 # reservation's seed file
 
-reservation = Reservation.new(:user_id => 1, :flight_id => 1, :row_no => "4", :column_no => "3")
-reservation = Reservation.new(:user_id => 2, :flight_id => 1, :row_no => "6", :column_no => "1")
-reservation = Reservation.new(:user_id => 3, :flight_id => 1, :row_no => "11", :column_no => "6")
+reservation = Reservation.new(:user_id => user.id, :flight_id => flight.id, :row_no => "4", :column_no => "3")
+reservation = Reservation.new(:user_id => user2.id, :flight_id => flight.id, :row_no => "6", :column_no => "1")
+reservation = Reservation.new(:user_id => user3.id, :flight_id => flight.id, :row_no => "11", :column_no => "6")
 reservation.save
 
 
