@@ -30,6 +30,9 @@ $(document).ready(function () {
   
   plane.save();
 
+  var view = new BurningAirlines.Views.SearchView();
+  view.render();
+
 });
 
 
