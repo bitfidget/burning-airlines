@@ -40,7 +40,7 @@ gem 'protected_attributes'
 gem 'rails_12factor'
 
 #debugging Gems
-
+	
 gem 'pry-rails'
 gem 'pry-debugger'
 gem 'pry-stack_explorer'
