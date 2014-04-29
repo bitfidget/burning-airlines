@@ -9,9 +9,9 @@ Reservation.destroy_all
 #----------------------------------------------------
 
 # user's seed file
-user = User.new(:username => 'testuser1', :email => 'user1@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
+user = User.new(:username => 'testuser1', :email => 'user1@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234', :admin => true)
 user.save
-user2 = User.new(:username => 'testuser2', :email => 'user2@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
+user2 = User.new(:username => 'testuser2', :email => 'user2@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234', :admin => true)
 user2.save
 user3 = User.new(:username => 'testuser3', :email => 'user3@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
 user3.save
@@ -24,27 +24,26 @@ user6.save
 
 #----------------------------------------------------
 
-# flight's seed file
-
-flight = Flight.new(:flight_no => '412', :plane_id => 1, :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
-flight.save
-
-
-#----------------------------------------------------
-
 # plane's seed file
 
 plane = Plane.new(:rows => 12, :columns => 6, :model => "747")
 plane.save
 
+#----------------------------------------------------
+
+# flight's seed file
+
+flight = plane.flights.create(:flight_no => '412', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight2 = plane.flights.create(:flight_no => '413', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight3 = plane.flights.create(:flight_no => '414', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
 
 #----------------------------------------------------
 
 # reservation's seed file
 
-reservation = Reservation.new(:user_id => 1, :flight_id => 1, :row_no => "4", :column_no => "3")
-reservation = Reservation.new(:user_id => 2, :flight_id => 1, :row_no => "6", :column_no => "1")
-reservation = Reservation.new(:user_id => 3, :flight_id => 1, :row_no => "11", :column_no => "6")
+reservation = Reservation.new(:user_id => user.id, :flight_id => flight.id, :row_no => "4", :column_no => "3")
+reservation = Reservation.new(:user_id => user2.id, :flight_id => flight.id, :row_no => "6", :column_no => "1")
+reservation = Reservation.new(:user_id => user3.id, :flight_id => flight.id, :row_no => "11", :column_no => "6")
 reservation.save
 
 

@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  username               :string(255)
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -24,5 +26,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :username, :password, :password_confirmation
   has_many :reservations
+
+
+  
 end
 
