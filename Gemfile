@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -33,6 +33,18 @@ group :doc do
 end
 
 gem 'devise'
+
+gem 'rails-backbone'
+gem 'modernizr-rails'
+
+#debugging Gems
+
+gem 'pry-rails'
+gem 'pry-debugger'
+gem 'pry-stack_explorer'
+gem 'better_errors'
+gem 'binding_of_caller'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
