@@ -1,7 +1,7 @@
 BurningAirlines.Routers.appRouter = Backbone.Router.extend({
   routes: {
     '': 'search',
-    'flights/:id': 'bookSeat'   
+    'flights/:id': 'bookSeat',  
     '*anything': 'goHome'
   },
   search: function () {
