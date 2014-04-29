@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: burning-airlines_development
   pool: 5
-  username: markpereira
+  username: annehomann
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a

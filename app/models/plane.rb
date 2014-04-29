@@ -1,6 +1,17 @@
-<<<<<<< HEAD
-plane.rb
-=======
+# == Schema Information
+#
+# Table name: planes
+#
+#  id         :integer          not null, primary key
+#  rows       :integer
+#  columns    :integer
+#  model      :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Plane < ActiveRecord::Base
+	attr_accessible :rows, :columns, :model
+	has_many :flights
 end
->>>>>>> 66c21e128e3b13d4f036081ba6fc702c0ae5f9d9
+

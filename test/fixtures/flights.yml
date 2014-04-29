@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: flights
+#
+#  id          :integer          not null, primary key
+#  flight_no   :string(255)
+#  plane_id    :integer
+#  origin      :string(255)
+#  destination :string(255)
+#  departure   :datetime
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
