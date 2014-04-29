@@ -1,0 +1,35 @@
+<h1>Listing flights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flight no</th>
+      <th>Plane</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Departure</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flights.each do |flight| %>
+      <tr>
+        <td><%= flight.flight_no %></td>
+        <td><%= flight.plane_id %></td>
+        <td><%= flight.origin %></td>
+        <td><%= flight.destination %></td>
+        <td><%= flight.departure %></td>
+        <td><%= link_to 'Show', flight %></td>
+        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
+        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Flight', new_flight_path %>

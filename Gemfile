@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'devise'
+
 gem 'rails-backbone'
 gem 'modernizr-rails'
 
@@ -42,6 +44,7 @@ gem 'pry-debugger'
 gem 'pry-stack_explorer'
 gem 'better_errors'
 gem 'binding_of_caller'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
