@@ -24,5 +24,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :username, :password, :password_confirmation
   has_many :reservations
+
+
+  
 end
 
