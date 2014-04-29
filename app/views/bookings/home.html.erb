@@ -33,4 +33,13 @@
         </tr>      
 </script>
 
-
+<!-- this template is to display details of a single flight, with a container to output the seats -->
+<script id="flightView" type="text/x-underscore-template">
+  <ul id="details">
+    <li>{{ departure }}</li>
+    <li>{{ flight_no }}</li>
+    <li>{{ origin }} to {{ destination }}</li>
+  </ul>
+  <table id="seats">
+  </table>
+</script>
