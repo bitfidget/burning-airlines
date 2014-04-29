@@ -5,6 +5,11 @@
 //= require_tree ./views
 //= require_tree ./routers
 
+// Use Handlebars/Moustache style templates to prevent conflict with ERB.
+_.templateSettings = {
+  interpolate: /\{\{(.+?)\}\}/g
+};
+
 window.BurningAirlines = {
   Models: {},
   Collections: {},
