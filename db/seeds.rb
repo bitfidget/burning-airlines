@@ -33,8 +33,9 @@ plane.save
 
 # flight's seed file
 
-flight = plane.flights.new(:flight_no => '412', :plane_id => 1, :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
-flight.save
+flight = plane.flights.create(:flight_no => '412', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight2 = plane.flights.create(:flight_no => '413', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight3 = plane.flights.create(:flight_no => '414', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
 
 #----------------------------------------------------
 
