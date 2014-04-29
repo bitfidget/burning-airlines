@@ -18,29 +18,11 @@ window.BurningAirlines = {
 };
 
 $(document).ready(function () {
-  // BurningAirlines.planes = new BurningAirlines.Collections.Planes();
-  // BurningAirlines.planes.fetch();
 
-  // flights = new BurningAirlines.Collections.Flights();
-  // flights.fetch().done(function () {
-  //   var view = new BurningAirlines.Views.SearchView({collection: flights});
-  //   view.render();
-  // });
-
-  BurningAirlines.flights = new BurningAirlines.Collections.Flights();
-  BurningAirlines.flights.fetch().done( showView );
-
-  // BurningAirlines.reservations = new BurningAirlines.Collections.Reservations();
-  // BurningAirlines.reservations.fetch();
+    //instansiate the router
+    BurningAirlines.router = new BurningAirlines.Routers.appRouter();
+    Backbone.history.start({pushState: false});
 
 });
-
-//TEST OF FLIGHT / RESERVATION PAGE
-var showView = function () {
-  var flight = BurningAirlines.flights.models[0];
-  console.log('running',flight);
-  var view = new BurningAirlines.Views.FlightView({model: flight});
-  view.render();
-};
 
 
