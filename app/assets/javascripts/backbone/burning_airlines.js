@@ -25,6 +25,7 @@ $(document).ready(function () {
   flights.fetch().done(function () {
     var view = new BurningAirlines.Views.SearchView({collection: flights});
     view.render();
+    Backbone.history.start({pushState: false}); // Modernizr.history});
   });
 
   reservations = new BurningAirlines.Collections.Reservations();
