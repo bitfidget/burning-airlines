@@ -3,9 +3,24 @@ body {
 	padding: 0;
 }
 
+h1.header {
+	padding-bottom: 130px;
+}
+
 #main {
 	max-width: 960px;
 	margin: 0 auto;
 	margin-top: 100px;
 }
 
+#update_butt {
+	padding-top: 15px;
+}
+
+.extra_space {
+	padding-top: 8px;
+}
+
+.extra_space a {
+	text-decoration: none;
+}
