@@ -21,32 +21,26 @@
             <% if alert %>
               <p class="alert"><%= alert %></p>
             <% end %>
-<<<<<<< HEAD
             <% if alert %>
               <p class="alert"><%= flash[:error] %></p>
             <% end %>
 
-              <% if user_signed_in? %>
-=======
             <% if user_signed_in? %>
 
->>>>>>> 46ed423a4c164691b2cab7746bdb01afb1c416e6
-
-    <!-- if user is signed in & user is admin, display links for CRUD -->
-
-            <% if current_user.admin? %>
+            <!-- if user is signed in & user is admin, display links for CRUD -->
+              <% if current_user.admin? %>
                 <li><%= link_to 'Home', root_url %></li>
                 <li><%= link_to 'Planes', planes_path %></li>
                 <li><%= link_to 'Flights', flights_path %></li>
-            <% end %>
+              <% end %>
                 <span class="user">Logged in as <strong><%= current_user.email %></strong></span>
                 <li><%= link_to 'Settings', edit_user_registration_path %></li> 
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             <% else %>    
-                <li><%= link_to "Sign up", new_user_registration_path %></li> 
-                <li><%= link_to "Log in", new_user_session_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li> 
+              <li><%= link_to "Log in", new_user_session_path %></li>
+            <% end %>
           </ul>
-          <% end %>
         </nav>
       </div>
     </div>
@@ -56,6 +50,7 @@
     <%= yield %>
   
 </div>    
+
 
 </body>
 </html>
