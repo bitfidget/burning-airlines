@@ -19,7 +19,8 @@ BurningAirlines.Routers.appRouter = Backbone.Router.extend({
     //setup a new flight model with the id
     var flight = new BurningAirlines.Models.Flight({id: id});
     //fetch this flight from the server
-    flight.fetch().done(function (){
+    flight.fetch().done(function () {
+      //create a view and pass in the 'flight' and then render
       var view = new BurningAirlines.Views.FlightView({model: flight});
       view.render();  
     });
