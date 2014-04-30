@@ -21,10 +21,11 @@ BurningAirlines.Routers.appRouter = Backbone.Router.extend({
     //also get the reservations associtated wiht this flight by flight_id
     var flightReservations = new BurningAirlines.Collections.Reservations({flight_id: flight.id});
     //fetch this flight from the server
-    flight.fetch().done(function (){
-      flightReservations.fetch();
-      var view = new BurningAirlines.Views.FlightView({model: flight});
-      view.render();  
+    flight.fetch().done(function () {
+      flightReservations.fetch().done(function () {
+        var view = new BurningAirlines.Views.FlightView({model: flight});
+        view.render();
+      }); 
     });
     
   },
