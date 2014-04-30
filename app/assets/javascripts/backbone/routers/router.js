@@ -14,6 +14,7 @@ BurningAirlines.Routers.appRouter = Backbone.Router.extend({
       view.render();
     });
   },
+  
   bookSeat: function (id) {
     //setup a new flight model with the id
     var flight = new BurningAirlines.Models.Flight({id: id});
