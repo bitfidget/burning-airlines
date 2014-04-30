@@ -1,14 +1,18 @@
+#seats td,
 .search-listing{
   cursor: pointer;
   transition: all .5s ease;
 }
+#seats td,
 #searchTable td{
   padding: 5px;
   font-weight: bold;
 }
+
 #searchTable .search-listing td{
   font-weight: normal;
 }
+#seats td:hover,
 #searchTable tr.search-listing:hover {
   background: #F60;
 }
