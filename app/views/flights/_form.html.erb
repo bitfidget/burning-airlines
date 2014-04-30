@@ -16,8 +16,8 @@
     <%= f.text_field :flight_no %>
   </div>
   <div class="field">
-    <%= f.label :plane_id %><br>
-    <%= f.number_field :plane_id %>
+    <%= f.label :plane %><br>
+    <%= f.select :plane, Plane.all.map {|plane| [plane.model, plane.id]}, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :origin %><br>
