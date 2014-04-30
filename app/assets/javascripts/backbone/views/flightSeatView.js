@@ -13,7 +13,8 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
   },  
 
   events: {
-    'click': 'reserve'
+    'click': 'reserve',
+    'change': 'render'
   },
 
   reserve: function () {
@@ -28,9 +29,13 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
     //create a new reservation with required data
     var reservation = new BurningAirlines.Models.Reservation({flight_id: flight_id, row_no: row, column_no: column});
     //save the reservation
-    reservation.save();
+    reservation.save().done(function(){
+      //re-render the flight view
+      BurningAirlines.flight.getReservations();
+    });
     
     console.log("reservation created: ", reservation);
+
   }
 
 });

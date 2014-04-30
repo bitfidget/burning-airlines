@@ -35,4 +35,6 @@ BurningAirlines.Views.FlightView = Backbone.View.extend({
     return this;
   },
 
+
+
 });
