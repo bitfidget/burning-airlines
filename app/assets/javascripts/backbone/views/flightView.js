@@ -1,5 +1,5 @@
 BurningAirlines.Views.FlightView = Backbone.View.extend({
-  el: '#main',
+  el: '#results',
 
   initialize: function () {
     //fetch the template html

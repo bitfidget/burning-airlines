@@ -1,5 +1,5 @@
 BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
-  el: '#main',
+  el: '#results',
 
   initialize: function () {
     
