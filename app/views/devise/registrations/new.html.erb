@@ -6,6 +6,9 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 
+  <div><%= f.label :username %><br />
+  	<%= f.text_field :username, autocomplete: "off", :placeholder => 'username', :pattern => ".{5,10}", :required => true, :title => "5 to 10 characters allowed without spaces" %></div>
+
   <div><%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
