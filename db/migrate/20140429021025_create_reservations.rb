@@ -3,8 +3,8 @@ class CreateReservations < ActiveRecord::Migration
     create_table :reservations do |t|
       t.integer :user_id
       t.integer :flight_id
-      t.string :row_no
-      t.string :column_no
+      t.integer :row_no
+      t.integer :column_no
 
       t.timestamps
     end

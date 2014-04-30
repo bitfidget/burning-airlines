@@ -1,6 +1,10 @@
 class PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
 
+  #must be logged in to use these functions
+  before_filter :is_admin, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :is_user
+
   # GET /planes
   # GET /planes.json
   def index
@@ -71,4 +75,5 @@ class PlanesController < ApplicationController
     def plane_params
       params.require(:plane).permit(:rows, :columns, :model)
     end
+    
 end

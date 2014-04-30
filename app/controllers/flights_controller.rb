@@ -1,5 +1,14 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  
+  #must be logged in to use these functions
+  before_filter :is_admin, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :is_user
+
+  def reservations
+    reservations = Reservation.find(:all, :conditions => {:flight_id => params[:id]})
+    render :json => reservations
+  end
 
   # GET /flights
   # GET /flights.json
@@ -85,4 +94,5 @@ class FlightsController < ApplicationController
     def flight_params
       params.require(:flight).permit(:flight_no, :plane_id, :origin, :destination, :departure)
     end
+    
 end

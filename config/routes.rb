@@ -5,6 +5,7 @@ BurningAirlines::Application.routes.draw do
 
 	root :to => 'bookings#home'
 
+  get 'flights/:id/reservations' => 'flights#reservations'
 
 	devise_for :users
 	resources :reservations
