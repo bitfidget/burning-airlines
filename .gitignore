@@ -16,5 +16,5 @@
 /tmp
 
 # Ignore all database.yml.
-/config/database.yml
+#/config/database.yml
 
