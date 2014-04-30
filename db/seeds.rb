@@ -58,9 +58,9 @@ flight5.save
 
 # reservation's seed file
 
-reservation = Reservation.new(:user_id => user.id, :flight_id => flight.id, :row_no => "4", :column_no => "3")
-reservation = Reservation.new(:user_id => user2.id, :flight_id => flight.id, :row_no => "6", :column_no => "1")
-reservation = Reservation.new(:user_id => user3.id, :flight_id => flight.id, :row_no => "11", :column_no => "6")
+reservation = Reservation.new(:user_id => user.id, :flight_id => flight.id, :row_no => 4, :column_no => 3)
+reservation = Reservation.new(:user_id => user2.id, :flight_id => flight.id, :row_no => 6, :column_no => 1)
+reservation = Reservation.new(:user_id => user3.id, :flight_id => flight.id, :row_no => 11, :column_no => 6)
 reservation.save
 
 

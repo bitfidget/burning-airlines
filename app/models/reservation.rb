@@ -12,7 +12,11 @@
 #
 
 class Reservation < ActiveRecord::Base
-	attr_accessible :user_id, :flight_id, :row_no, :column_no
+	
+    validates_uniqueness_of :flight_id, :scope => [:row_no, :column_no]
+
+    attr_accessible :user_id, :flight_id, :row_no, :column_no
 	belongs_to :user
 	belongs_to :flight
+
 end
