@@ -18,28 +18,10 @@ window.BurningAirlines = {
 };
 
 $(document).ready(function () {
-  planes = new BurningAirlines.Collections.Planes();
-  planes.fetch();
 
-  flights = new BurningAirlines.Collections.Flights();
-  flights.fetch().done(function () {
-    var view = new BurningAirlines.Views.SearchView({collection: flights});
-    view.render();
-    Backbone.history.start({pushState: false}); // Modernizr.history});
-  });
-
-  reservations = new BurningAirlines.Collections.Reservations();
-  reservations.fetch();
-
-  plane = new BurningAirlines.Models.Plane({
-    rows: 3,
-    columns: 3,
-    model: '747'
-  });
-  
-  plane.save();
-
-  
+    //instansiate the router
+    BurningAirlines.router = new BurningAirlines.Routers.appRouter();
+    Backbone.history.start({pushState: false});
 
 });
 

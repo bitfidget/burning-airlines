@@ -17,6 +17,13 @@ class FlightsController < ApplicationController
   # GET /flights/1
   # GET /flights/1.json
   def show
+
+    @flight = Flight.find(params[:id])
+
+    respond_to do |format|
+      format.html #{ redirect_to @user, notice: 'User was successfully created.' }
+      format.json { render json: @flight, :include => :plane} #, status: :created, location: @user }
+    end
   end
 
   # GET /flights/new
