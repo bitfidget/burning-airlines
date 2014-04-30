@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_filter :is_user
 
   # GET /reservations
   # GET /reservations.json
