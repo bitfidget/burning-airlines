@@ -9,6 +9,7 @@ BurningAirlines.Views.FlightView = Backbone.View.extend({
     console.log('Flight:', this.model);
     console.log('Plane:', this.model.plane);
     console.log('Seats:', this.model.seats);
+    console.log('Reservations:', this.model.reservations);
   },
 
   render: function () {

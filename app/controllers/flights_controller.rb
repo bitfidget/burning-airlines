@@ -8,7 +8,11 @@ class FlightsController < ApplicationController
   def reservations
     reservations = Reservation.find(:all, :conditions => {:flight_id => params[:id]})
     # binding.pry
-    render :json => reservations
+    respond_to do |format|
+      format.html 
+      format.json { render json: reservations, :include => :user} 
+    end  
+    
   end
 
   # GET /flights

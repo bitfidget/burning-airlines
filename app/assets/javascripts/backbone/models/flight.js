@@ -34,6 +34,7 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
     this.reservations = new BurningAirlines.Collections.Reservations({flight_id: this.id});
     //bind ensures that 'this' refers to the correct context when inside, checkSeats
     this.reservations.fetch().done(_.bind(this.checkSeats, this));
+
   },
 
   checkSeats: function () {
@@ -45,11 +46,12 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
       var row = reservation.get('row_no');
       var column = reservation.get('column_no');
       var user_id = reservation.get('user_id');
+      var user_name = reservation.user.get('username')
       
       // console.log(row, column, 'user id: ', user_id);
       var seat = self.seats.where({row: row, column: column})[0];
       // console.log(seat);
-      seat.set('content', 'X');
+      seat.set('content', user_name);
     });
 
     //re-render the flight view
