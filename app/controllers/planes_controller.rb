@@ -3,6 +3,7 @@ class PlanesController < ApplicationController
 
   #must be logged in to use these functions
   before_filter :is_admin, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :is_user
 
   # GET /planes
   # GET /planes.json
@@ -74,12 +75,5 @@ class PlanesController < ApplicationController
     def plane_params
       params.require(:plane).permit(:rows, :columns, :model)
     end
-
-    # Used to stop users from adding themselves to admin role
-    def is_admin
-      unless current_user.admin
-        flash[:error] = "You must be logged on as Admin to modify this"
-        redirect_to "/" 
-      end  
-    end
+    
 end
