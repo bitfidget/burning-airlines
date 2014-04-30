@@ -1,6 +1,11 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
+  def reservations
+    reservations = Reservation.find(:all, :conditions => {:flight_id => params[:id]})
+    render :json => reservations
+  end
+
   # GET /flights
   # GET /flights.json
   def index
