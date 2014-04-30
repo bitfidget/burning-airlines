@@ -1,10 +1,28 @@
-body {
-	margin: 0;
-	padding: 0;
+#header { 
+	width: 900px;
+	margin-bottom: 30px;
+	background-color: black;
 }
 
-h1.header {
+#header h1 {
 	padding-bottom: 130px;
+	padding-left: 10px;
+	background-color: black;
+	color: white;
+	font-size: 40px;
+}
+
+#header h4 {
+	margin-top: -105px;
+	padding-left: 10px;
+	background-color: black;
+	color: white;
+	font-size: 16px;
+}
+
+img {
+	margin-left: 200px;
+	padding: 0;
 }
 
 #main {

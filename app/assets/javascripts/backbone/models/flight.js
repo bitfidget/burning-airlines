@@ -10,6 +10,7 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
   initialize: function () {
     //create a a new seats collection
     this.seats = new BurningAirlines.Collections.Seats();
+
     //setup event handler so that when sync completes, populate seats! 
     //This needs to wait as plane rows / columns are required to create seats
     this.on('sync', this.createSeats);
@@ -34,23 +35,31 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
     this.reservations = new BurningAirlines.Collections.Reservations({flight_id: this.id});
     //bind ensures that 'this' refers to the correct context when inside, checkSeats
     this.reservations.fetch().done(_.bind(this.checkSeats, this));
+
   },
 
   checkSeats: function () {
     var self = this;
-    // this.reservations
-    // debugger;
+
+    //loop through all reservations for this flight
     this.reservations.each(function (reservation) {
-      // console.log(reservation);
-      var row = reservation.get('row_no');
-      var column = reservation.get('column_no');
-      var user_id = reservation.get('user_id');
+
+      //find the seat that matches this reservation (get the first seat returned with [0])
+      var seat = self.seats.where({
+        row: reservation.get('row_no'), 
+        column: reservation.get('column_no')
+      })[0];
+
+      //get the username for the user attached to the reservation
+      var user_name = reservation.user.get('username')
       
-      // console.log(row, column, 'user id: ', user_id);
-      var seat = self.seats.where({row: row, column: column})[0];
-      // console.log(seat);
-      seat.set('content', 'X');
+      //set the content of an occupied seat to X
+      seat.set('content', user_name);
+      //set the seat to be occupied
+      seat.set('occupied', true);
     });
+
+    console.log('SEATS: ',self.seats);
 
     //re-render the flight view
     BurningAirlines.view.render();
