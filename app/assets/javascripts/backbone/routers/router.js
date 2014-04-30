@@ -20,8 +20,8 @@ BurningAirlines.Routers.appRouter = Backbone.Router.extend({
     BurningAirlines.flight = new BurningAirlines.Models.Flight({id: id});
     //fetch this flight from the server
     BurningAirlines.flight.fetch().done(function () {
-      var view = new BurningAirlines.Views.FlightView({model: BurningAirlines.flight});
-      view.render();
+      BurningAirlines.view = new BurningAirlines.Views.FlightView({model: BurningAirlines.flight});
+      BurningAirlines.view.render();
     });
     
   },
