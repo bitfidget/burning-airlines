@@ -17,8 +17,10 @@
         <tr>
           <td>Date</td>
           <td>Flight</td>        
-          <td>From </td>
-          <td>To </td>
+          <td>From</td>
+          <td>To</td>
+          <td>Plane Model</td>
+          <td>Seats</td>
         </tr>
     </table>    
 </script>
@@ -29,6 +31,8 @@
   <td class="flightNumber">{{ flight_no }}</td>        
   <td class="from">{{ origin }}</td>
   <td class="to">{{ destination }}</td>  
+  <td class="plane-model">{{ plane.model }}</td>  
+  <td class="seats">{{ (plane.rows * plane.columns) }}</td>  
 </script>
 
 
