@@ -38,6 +38,14 @@
     <li>{{ flight_no }}</li>
     <li>{{ origin }} to {{ destination }}</li>
   </ul>
-  <table id="seats">
+  <table>
+    <tr id="seats">
+    </tr>
   </table>
+</script>
+
+<!--this template is for the individual seats -->
+<script id="seatView" type="text/x-underscore-template">
+  {{ content }}
+  
 </script>
