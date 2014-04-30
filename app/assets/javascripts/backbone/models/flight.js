@@ -12,8 +12,9 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
     this.seats = new BurningAirlines.Collections.Seats();
     //setup event handler so that when sync completes, populate seats! 
     //This needs to wait as plane rows / columns are required to create seats
-    this.on('sync', this.createSeats)
-  }, 
+    this.on('sync', this.createSeats);
+    this.getReservations();
+  },
 
   createSeats: function () {
 
@@ -27,5 +28,29 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
         this.seats.add(seat);
       }
     }
+  },
+
+  getReservations: function () {
+    this.reservations = new BurningAirlines.Collections.Reservations({flight_id: this.id});
+    //bind ensures that 'this' refers to the correct context when inside, checkSeats
+    this.reservations.fetch().done(_.bind(this.checkSeats, this));
+  },
+
+  checkSeats: function () {
+    var self = this;
+    // this.reservations
+    // debugger;
+    this.reservations.each(function (reservation) {
+      // console.log(reservation);
+      var row = reservation.get('row_no');
+      var column = reservation.get('column_no');
+      var user_id = reservation.get('user_id');
+
+      // console.log(row, column, 'user id: ', user_id);
+      var seat = self.seats.where({row: row, column: column});
+      console.log(seat);
+    });
   }
+
+
 });
