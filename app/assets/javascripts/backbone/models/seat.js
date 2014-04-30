@@ -1,13 +1,19 @@
 BurningAirlines.Models.Seat = Backbone.Model.extend({
   defaults: {
-    username: undefined
+    content: undefined
+  },
+  initialize: function() {
+    this.getSeat();
   },
 
   getSeat: function() {
     //convert the column number to a letter
     letter = this.convertToLetter(this.get('column'));
-    //return the letter + row
-    return [letter,this.get('row')].join('');
+    //setup the seat code value
+    seatCode = [letter, this.get('row')].join('');
+    //set the 'content' variable on this seat
+    this.set('content', seatCode);
+    return seatCode;
   },
 
   //converts a given column number to a letter
