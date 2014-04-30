@@ -16,10 +16,14 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
   }, 
 
   createSeats: function () {
+
+    //get the flight id from the flight model so this can be saved within seats
+    flight_id = this.get('id');
+
     //loop through and create all seats, adding these to the collection
     for (var c = 1; c <= this.plane.get('columns'); c++) {
       for (var r = 1; r <= this.plane.get('rows'); r++) {
-        var seat = new BurningAirlines.Models.Seat({row: r, column: c});
+        var seat = new BurningAirlines.Models.Seat({row: r, column: c, flight_id: flight_id});
         this.seats.add(seat);
       }
     }

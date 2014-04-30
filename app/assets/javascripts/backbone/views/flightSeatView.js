@@ -26,13 +26,15 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
     // debugger;
 
     //get the plane_id, row number and column number for the clicked seat
-    var plane_id = this.model.get('plane_id');
+    var flight_id = this.model.get('flight_id');
     var row = this.model.get('row');
     var column = this.model.get('column');
 
+    debugger;
+
     console.log("you clicked seat: ", this.model.get('content'));
 
-    var reservation = new BurningAirlines.Models.Reservation({plane_id: plane_id, row_no: row, column_no: column});
+    var reservation = new BurningAirlines.Models.Reservation({flight_id: flight_id, row_no: row, column_no: column});
     reservation.save();
     
     console.log("reservation created: ", reservation);
