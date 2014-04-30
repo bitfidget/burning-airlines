@@ -1,10 +1,18 @@
-body {
-	margin: 0;
-	padding: 0;
+#header { 
+	width: 900px;
+	margin-bottom: 30px;
+	background-color: black;
 }
 
-h1.header {
+#header h1 {
 	padding-bottom: 130px;
+	background-color: black;
+	colour: white;
+}
+
+img {
+	margin-left: 200px;
+	padding: 0;
 }
 
 #main {
