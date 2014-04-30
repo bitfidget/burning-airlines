@@ -44,8 +44,7 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
     this.reservations.each(function (reservation) {
       // console.log(reservation);
       var row = reservation.get('row_no');
-      var column = reservation.get('column_no');
-      var user_id = reservation.get('user_id');
+      var column = reservation.get('column_no');      
       var user_name = reservation.user.get('username')
       
       // console.log(row, column, 'user id: ', user_id);
