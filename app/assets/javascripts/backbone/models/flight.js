@@ -10,6 +10,7 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
   initialize: function () {
     //create a a new seats collection
     this.seats = new BurningAirlines.Collections.Seats();
+
     //setup event handler so that when sync completes, populate seats! 
     //This needs to wait as plane rows / columns are required to create seats
     this.on('sync', this.createSeats);
