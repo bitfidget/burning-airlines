@@ -9,9 +9,11 @@ Reservation.destroy_all
 #----------------------------------------------------
 
 # user's seed file
-user = User.new(:username => 'testuser1', :email => 'user1@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234', :admin => true)
+user = User.new(:username => 'testuser1', :email => 'user1@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
+user.admin = true
 user.save
-user2 = User.new(:username => 'testuser2', :email => 'user2@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234', :admin => true)
+user2 = User.new(:username => 'testuser2', :email => 'user2@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
+user2.admin = true
 user2.save
 user3 = User.new(:username => 'testuser3', :email => 'user3@user.com', :password => 'abcd1234', :password_confirmation => 'abcd1234')
 user3.save
@@ -26,16 +28,31 @@ user6.save
 
 # plane's seed file
 
-plane = Plane.new(:rows => 12, :columns => 6, :model => "747")
+plane = Plane.new(:rows => 12, :columns => 6, :model => "Boeing 777")
 plane.save
+plane1 = Plane.new(:rows => 24, :columns => 6, :model => "Boeing 747")
+plane1.save
+plane2 = Plane.new(:rows => 24, :columns => 9, :model => "Airbus A380")
+plane2.save
+plane3 = Plane.new(:rows => 24, :columns => 6, :model => "Airbus A320")
+plane3.save
+
+
 
 #----------------------------------------------------
 
 # flight's seed file
 
 flight = plane.flights.create(:flight_no => '412', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
-flight2 = plane.flights.create(:flight_no => '413', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
-flight3 = plane.flights.create(:flight_no => '414', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight.save
+flight2 = plane2.flights.create(:flight_no => '413', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight2.save
+flight3 = plane3.flights.create(:flight_no => '414', :origin => "Sydney", :destination => "Melbourne", :departure => "29/04/2014 21:15")
+flight3.save
+flight4 = plane1.flights.create(:flight_no => '415', :origin => "Perth", :destination => "Brisbane", :departure => "29/04/2014 23:15")
+flight4.save
+flight5 = plane2.flights.create(:flight_no => '420', :origin => "Brisbane", :destination => "Melbourne", :departure => "30/04/2014 07:15")
+flight5.save
 
 #----------------------------------------------------
 
