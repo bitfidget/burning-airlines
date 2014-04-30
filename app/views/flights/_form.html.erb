@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :plane %><br>
-    <%= f.select :plane, Plane.all.map {|plane| [plane.model, plane.id]}, :include_blank => true %>
+    <%= f.collection_select :plane_id, Plane.all, :id, :model %>
   </div>
   <div class="field">
     <%= f.label :origin %><br>
