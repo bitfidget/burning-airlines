@@ -35,20 +35,21 @@ end
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.1.1'
-
 gem 'rails-backbone'
 gem 'modernizr-rails'
 gem 'protected_attributes'
 gem 'rails_12factor'
 
 #debugging Gems
-	
-gem 'pry-rails'
-gem 'pry-debugger'
-gem 'pry-stack_explorer'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'annotate'
+
+group :development do	
+	gem 'pry-rails'
+	gem 'pry-debugger'
+	gem 'pry-stack_explorer'
+	gem 'better_errors'
+	gem 'binding_of_caller'
+	gem 'annotate'
+end
 
 
 # Use ActiveModel has_secure_password
