@@ -1,5 +1,5 @@
 BurningAirlines.Views.SearchView = Backbone.View.extend({
-  el: '#main',
+  el: '#results',
 
   initialize : function () {
     this.template = _.template($('#searchView').html() );

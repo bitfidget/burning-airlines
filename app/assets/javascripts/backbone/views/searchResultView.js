@@ -17,6 +17,7 @@ BurningAirlines.Views.SearchResultView = Backbone.View.extend({
 
   bookSeats : function () {
     console.log('youre searching');
+    BurningAirlines.router.navigate('flights/' + (this.model.attributes.id), true);
   }
 
 

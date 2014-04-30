@@ -1,0 +1,14 @@
+.search-listing{
+  cursor: pointer;
+  transition: all .5s ease;
+}
+#searchTable td{
+  padding: 5px;
+  font-weight: bold;
+}
+#searchTable .search-listing td{
+  font-weight: normal;
+}
+#searchTable tr.search-listing:hover {
+  background: #F60;
+}
