@@ -12,18 +12,3 @@
  *= require_tree .
  */
  
-
-body {
-	background-color: #FFF;
-  margin: 0;
-  padding: 0;
-}
-
-#main {
-   max-width: 960px;
-   margin: 0 auto;
-}
-
-h1 {
-	text-align: center;
-}
