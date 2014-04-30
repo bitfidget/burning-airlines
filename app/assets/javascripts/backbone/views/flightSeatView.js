@@ -4,7 +4,6 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
   
   initialize: function () {
     this.template = _.template($('#seatView').html());
-    
   },
 
   render: function () {
@@ -18,23 +17,30 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
   },
 
   reserve: function () {
-    //issues:
-    //NO USER ID ASSOCIATED WITH THE SEAT
 
-    //get the flight_id, row number and column number for the clicked seat
-    var flight_id = this.model.get('flight_id');
-    var row = this.model.get('row');
-    var column = this.model.get('column');
+    occupied = this.model.get('occupied');
 
-    //create a new reservation with required data
-    var reservation = new BurningAirlines.Models.Reservation({flight_id: flight_id, row_no: row, column_no: column});
-    //save the reservation
-    reservation.save().done(function(){
-      //re-render the flight view
-      BurningAirlines.flight.getReservations();
-    });
-    
-    console.log("reservation created: ", reservation);
+    if (occupied === false) {
+      
+      //get the flight_id, row number and column number for the clicked seat
+      var flight_id = this.model.get('flight_id');
+      var row = this.model.get('row');
+      var column = this.model.get('column');
+
+      //create a new reservation with required data
+      var reservation = new BurningAirlines.Models.Reservation({flight_id: flight_id, row_no: row, column_no: column});
+      //save the reservation
+      reservation.save().done(function(){
+        //re-render the flight view
+        BurningAirlines.flight.getReservations();
+      });
+      
+      console.log("reservation created: ", reservation);
+
+    } else {
+      //for testing only, log that click was ignored
+      console.log('click ignored, seat is occupied')
+    }
 
   }
 
