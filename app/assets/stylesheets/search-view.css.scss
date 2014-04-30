@@ -21,29 +21,23 @@
 }
 
 #plane-view{
-  width: 100%;
   min-height: 200px;
-}
-#nose,
-#fuselage,
-#tail{
-  float: left;
-  display: inline-block;
-}
-#nose{
-  width: 190px;
-  background: image-url('nose.png') no-repeat right;
-  height: 200px;
+  padding-right: 228px;
+  background: image-url('tail.png') no-repeat right;
+  background-size: 228px 100%;
   display: block;
 }
-#tail{
-  width: 230px;
-  background: image-url('tail.png') no-repeat right;
-  height: 200px;
+#nose{
+  padding-left: 184px;
+  background: image-url('nose.png') no-repeat left;
+  background-size: 184px 100%;
+  min-height: 200px;
   display: block;
 }
 #fuselage{
   background: image-url('fuselage.png') repeat-x;
-  height: 200px;
+  background-size: 33px 100%;
+  min-height: 200px;
+  padding-top: 10px;
   display: block;
 }
