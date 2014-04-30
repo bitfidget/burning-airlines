@@ -8,9 +8,30 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
   },
 
   render: function () {
-
     this.$el.html(this.template(this.model.toJSON()));
     return this;
+  },  
+
+  events: {
+    'click': 'reserve'
+  },
+
+  reserve: function () {
+    //issues:
+    //NO USER ID ASSOCIATED WITH THE SEAT
+
+    //get the flight_id, row number and column number for the clicked seat
+    var flight_id = this.model.get('flight_id');
+    var row = this.model.get('row');
+    var column = this.model.get('column');
+
+    //create a new reservation with required data
+    var reservation = new BurningAirlines.Models.Reservation({flight_id: flight_id, row_no: row, column_no: column});
+    //save the reservation
+    reservation.save();
+    
+    console.log("reservation created: ", reservation);
   }
+
 });
 
