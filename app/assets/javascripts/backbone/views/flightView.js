@@ -11,7 +11,7 @@ BurningAirlines.Views.FlightView = Backbone.View.extend({
     console.log('Seats:', this.model.seats);
 
     //create timer to re-render page every 3 seconds
-    //bind sets the correct context for this when inside the interval to be = the model
+    //bind sets the correct context for this when inside the interval to be = the model (the flight)
     this.timer = window.setInterval(_.bind(this.model.getReservations,this.model), 3000);
   },
 

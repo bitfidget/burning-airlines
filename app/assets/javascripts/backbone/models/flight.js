@@ -39,19 +39,23 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
 
   checkSeats: function () {
     var self = this;
-    // this.reservations
-    // debugger;
+
+    //loop through all reservations for this flight
     this.reservations.each(function (reservation) {
-      // console.log(reservation);
-      var row = reservation.get('row_no');
-      var column = reservation.get('column_no');
-      var user_id = reservation.get('user_id');
+
+      //find the seat that matches this reservation (get the first seat returned with [0])
+      var seat = self.seats.where({
+        row: reservation.get('row_no'), 
+        column: reservation.get('column_no')
+      })[0];
       
-      // console.log(row, column, 'user id: ', user_id);
-      var seat = self.seats.where({row: row, column: column})[0];
-      // console.log(seat);
+      //set the content of an occupied seat to X
       seat.set('content', 'X');
+      //set the seat to be occupied
+      seat.set('occupied', true);
     });
+
+    console.log('SEATS: ',self.seats);
 
     //re-render the flight view
     BurningAirlines.view.render();
