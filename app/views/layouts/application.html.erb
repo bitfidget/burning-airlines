@@ -17,6 +17,7 @@
   <% end %>
 
     <% if user_signed_in? %>
+
     <!-- if user is signed in & user is admin, display links for CRUD -->
       <% if current_user.admin? %>
           <%= link_to 'Planes', planes_path %>
