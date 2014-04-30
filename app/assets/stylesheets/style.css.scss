@@ -6,6 +6,7 @@
 
 #header h1 {
 	padding-bottom: 130px;
+	padding-top: 5px;
 	padding-left: 10px;
 	background-color: black;
 	color: white;
@@ -25,12 +26,19 @@ img {
 	padding: 0;
 }
 
+h3 {
+	padding-top: 20px;
+}
+
 #main {
 	max-width: 960px;
 	margin: 0 auto;
 	margin-top: 100px;
 }
 
+#plane_form {
+	margin-top: 30px;
+}
 
 #update_butt {
 	padding-top: 15px;
@@ -42,4 +50,12 @@ img {
 
 .extra_space a {
 	text-decoration: none;
+}
+
+.nav-pills li a:hover {
+	color: #F60;
+}
+
+.nav-pills {
+	color: #F60;
 }
