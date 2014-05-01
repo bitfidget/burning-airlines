@@ -18,7 +18,7 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
 
   reserve: function () {
 
-    debugger;
+    // debugger;
 
     occupied = this.model.get('occupied');
 
