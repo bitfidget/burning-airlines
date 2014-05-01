@@ -41,7 +41,10 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
   checkSeats: function () {
 
     //reset all seats back to their default id
-    this.seats.each(function(seat){ seat.getSeat(); })
+    this.seats.each(function(seat){ 
+      seat.getSeat(); 
+      seat.set('occupied', undefined);
+    })
 
     var self = this;
 
