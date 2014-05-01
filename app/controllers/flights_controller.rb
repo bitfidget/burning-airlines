@@ -18,7 +18,7 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.all.order(:departure)
 
     # render :json => @flights #, :include => {:plane}
 
