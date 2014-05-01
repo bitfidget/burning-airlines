@@ -18,9 +18,11 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
 
   reserve: function () {
 
+    debugger;
+
     occupied = this.model.get('occupied');
 
-    if (occupied === false) {
+    if (typeof occupied === 'undefined') {
       
       //get the flight_id, row number and column number for the clicked seat
       var flight_id = this.model.get('flight_id');
@@ -37,6 +39,11 @@ BurningAirlines.Views.FlightSeatView = Backbone.View.extend({
       
       console.log("reservation created: ", reservation);
 
+    } else if (occupied === BurningAirlines.userID) {
+      var res_id = this.model.get('reservation_id');
+      var reservation = new BurningAirlines.Models.Reservation({id: res_id});
+      reservation.destroy();
+      this.model.getSeat();
     } else {
       //for testing only, log that click was ignored
       console.log('click ignored, seat is occupied')

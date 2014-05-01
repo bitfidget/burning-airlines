@@ -51,12 +51,15 @@ BurningAirlines.Models.Flight = Backbone.Model.extend({
       })[0];
 
       //get the username for the user attached to the reservation
-      var user_name = reservation.user.get('username')
+      var user_name = reservation.user.get('username');
+      var user_id = reservation.user.get('id');
       
       //set the content of an occupied seat to X
       seat.set('content', user_name);
       //set the seat to be occupied
-      seat.set('occupied', true);
+      seat.set('occupied', user_id);
+      //set the reservation id
+      seat.set('reservation_id', reservation.id);
     });
 
     console.log('SEATS: ',self.seats);

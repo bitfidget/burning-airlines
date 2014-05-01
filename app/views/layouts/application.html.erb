@@ -51,6 +51,18 @@
   
 </div>    
 
+<!-- set the BurningAirlies.userID = the current signed in user -->
+<% if user_signed_in? %>
+  <script>
+    //if the user is signed in, set signed in to true
+    BurningAirlines.userID = <%= current_user.id %>; 
+  </script>
+<% else %>
+  <script>
+    //if the user is signed in, set signed in to true
+    BurningAirlines.userID = undefined;
+  </script>
+<% end %>
 
 </body>
 </html>

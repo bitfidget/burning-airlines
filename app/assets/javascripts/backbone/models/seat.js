@@ -1,7 +1,7 @@
 BurningAirlines.Models.Seat = Backbone.Model.extend({
   defaults: {
     content: undefined,
-    occupied: false
+    occupied: undefined
   },
 
   initialize: function() {
